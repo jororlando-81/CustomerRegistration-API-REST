@@ -1,8 +1,8 @@
 package com.project.customerRegistration.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,7 +13,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table( name = "tb_phone" )
-public class Phone {
+public class Phone  implements Serializable {
+	 private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,21 +23,23 @@ public class Phone {
 	private Integer dd;
 	private Integer number;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_Customer" , referencedColumnName = "id" )
-    private Customer customerId;
-
+	@ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+	
 	public Phone() {
 		super();
 	}
 
-	public Phone(Long id, Integer dd, Integer number, Customer customerId) {
+	public Phone(Long id, Integer dd, Integer number, Customer customer) {
 		super();
 		this.id = id;
 		this.dd = dd;
 		this.number = number;
-		this.customerId = customerId;
+		this.customer = customer;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -62,12 +65,18 @@ public class Phone {
 		this.number = number;
 	}
 
-	public Customer getCustomerId() {
-		return customerId;
+	
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setCustomerId(Customer customerId) {
-		this.customerId = customerId;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -86,7 +95,5 @@ public class Phone {
 		Phone other = (Phone) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 
 }

@@ -1,20 +1,19 @@
 package com.project.customerRegistration.entities;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table( name = "tb_address" )
-public class Address {
-	
+public class Address  implements Serializable {
+	 private static final long serialVersionUID = 1L;
+	 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,21 +21,17 @@ public class Address {
 	private String street;
     private String city;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_customer", referencedColumnName = "id")
-    private Customer customerId;
-
 	public Address() {
 		super();
 	}
 
-	public Address(Long id, String street, String city, Customer customerId) {
+	public Address(Long id, String street, String city) {
 		super();
 		this.id = id;
 		this.street = street;
 		this.city = city;
-		this.customerId = customerId;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -62,12 +57,8 @@ public class Address {
 		this.city = city;
 	}
 
-	public Customer getCustomerId() {
-		return customerId;
-	}
-
-	public void setCustomerId(Customer customerId) {
-		this.customerId = customerId;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	@Override
@@ -86,5 +77,5 @@ public class Address {
 		Address other = (Address) obj;
 		return Objects.equals(id, other.id);
 	}
-    
+
 }

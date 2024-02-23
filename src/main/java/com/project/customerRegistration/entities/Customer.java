@@ -1,15 +1,16 @@
 package com.project.customerRegistration.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;  
 import java.util.Date;
-import java.util.List;
+import java.util.List; 
 import java.util.Objects;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -32,19 +33,20 @@ public class Customer implements Serializable {
 	
 	 @Temporal(TemporalType.DATE)
 	 private Date birth;
-
-	 @OneToOne(cascade = CascadeType.ALL, mappedBy = "customerId")
-	 private Address address;
-
-	 @OneToMany(cascade = CascadeType.ALL , mappedBy = "customerId")
-	 private List<Phone> phoneList;
 	
-	public Customer() {
+	 @OneToOne
+	 @JoinColumn(name = "address_id")
+	 private Address address;
+ 
+	 @OneToMany(mappedBy = "customer")   
+	 private List<Phone> phones = new ArrayList<>();
+	 
+	 public Customer() {
 		super();
-	}
-
+	 }
+	  
 	public Customer(Long id, String name, String identification, MaritalStatus maritalstatus, Character gender,
-			Date birth, Address address, List<Phone> phoneList) {
+			Date birth, Address address, List<Phone> phones) {  
 		super();
 		this.id = id;
 		this.name = name;
@@ -53,8 +55,10 @@ public class Customer implements Serializable {
 		this.gender = gender;
 		this.birth = birth;
 		this.address = address;
-		this.phoneList = phoneList;
+		this.phones = phones;
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -112,18 +116,15 @@ public class Customer implements Serializable {
 		this.address = address;
 	}
 
-	public List<Phone> getPhoneList() {
-		return phoneList;
-	}
-
-	public void setPhoneList(List<Phone> phoneList) {
-		this.phoneList = phoneList;
+	
+	public List<Phone> getPhones() {  
+		return phones;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -140,6 +141,5 @@ public class Customer implements Serializable {
 		Customer other = (Customer) obj;
 		return Objects.equals(id, other.id);
 	}
-
 
 }
