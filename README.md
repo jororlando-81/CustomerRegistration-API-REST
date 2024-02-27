@@ -6,3 +6,4 @@
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/Classes%20diagram.drawio.png)
 
+![diagram](https://github.com/jororlando-81/assets/blob/main/Post%20Customer.png)
