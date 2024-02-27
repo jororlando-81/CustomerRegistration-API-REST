@@ -1,5 +1,6 @@
 package com.project.customerRegistration.controllers;
 
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.project.customerRegistration.entities.Customer;
 import com.project.customerRegistration.services.CustomerService;
@@ -24,7 +26,9 @@ public class CustomerController {
 	@PostMapping
 	public ResponseEntity<Customer> insert ( @RequestBody Customer customer){
 		Customer newCustomer  = customerService.insert(customer) ;
-		return ResponseEntity.ok().body(newCustomer);  
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(newCustomer.getId()).toUri();
+		return ResponseEntity.created(uri).body(newCustomer);  
 	}
 	
 	@GetMapping
