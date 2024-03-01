@@ -6,6 +6,40 @@
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/Classes%20diagram.drawio.png)
 
-## Testing customer´s post method with Postman
+## Testing endpoints with Postman
+
+###  Customer´s post method
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/Post%20Customer.png)
+
+###  Customer´s get method, find by id
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerById.png)
+
+###  Customer´s get method, show customer list
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerList.png)
+
+###  Customer´s put method, update customer data
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerUpdate.png)
+
+###  Customer´s delete method, delete customer 
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/deleteCustomer.png)
+
+
+## Testing with H2 database
+
+
+###  Address tableaddressH2.png
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/addressH2.png)
+
+###  Customer table, one to one relations between Customer and Adrress
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerH2.png)
+
+###  Phone table, many to one relations between Phone and Customer
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/phone%20h2.png)
