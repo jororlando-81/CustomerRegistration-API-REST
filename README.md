@@ -32,7 +32,7 @@
 ## Testing with H2 database
 
 
-###  Address tableaddressH2.png
+###  Address table
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/addressH2.png)
 
