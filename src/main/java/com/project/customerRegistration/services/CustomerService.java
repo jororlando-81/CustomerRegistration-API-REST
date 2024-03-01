@@ -32,5 +32,22 @@ public class CustomerService {
 		  customerRepository.deleteById(id);
 	}
 
+	public Customer update ( Long id , Customer customer ) {
+		  
+		  Customer entity =  customerRepository.getReferenceById(id);
+		  upDateData( entity , customer );
+		  return customerRepository.save(entity);
+	}
+
+	private void upDateData(Customer entity, Customer customer) {
+		
+		entity.setName(customer.getName());
+		entity.setIdentification(customer.getIdentification());
+		entity.setMaritalstatus(customer.getMaritalstatus());
+		entity.setGender(customer.getGender());
+		entity.setBirth(customer.getBirth());
+	}
+	
+	
 	
 }
