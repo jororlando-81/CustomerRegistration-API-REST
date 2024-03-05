@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List; 
 import java.util.Objects;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,7 +39,7 @@ public class Customer implements Serializable {
 	 @JoinColumn(name = "address_id")
 	 private Address address;
  
-	 @OneToMany(mappedBy = "customer")   
+	 @OneToMany(mappedBy = "customer" , cascade = CascadeType.ALL )   
 	 private List<Phone> phones = new ArrayList<>();
 	 
 	 public Customer() {

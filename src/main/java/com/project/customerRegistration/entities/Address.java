@@ -25,11 +25,13 @@ public class Address  implements Serializable {
 		super();
 	}
 
+	
 	public Address(Long id, String street, String city) {
 		super();
 		this.id = id;
 		this.street = street;
 		this.city = city;
+	
 	}
 
 
