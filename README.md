@@ -67,7 +67,7 @@ Back-end web application for customer registration, including registration, sear
 - Maven
 - JPA / Hibernate
 - H2 database
-
+- API REST
 
 # Author
 
