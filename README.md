@@ -5,7 +5,7 @@
 
 # About the project
 
-Customer Registration is a back end web application, which consists of registering customers through a registration website, in addition to being able to register the customer, the application allows searching for a customer by their ID, listing customers, updating and deleting a client.
+Back-end web application for customer registration, including registration, search by ID, listing, updating and deleting customers.
 
 
 ## Class diagram
@@ -67,7 +67,7 @@ Customer Registration is a back end web application, which consists of registeri
 - Maven
 - JPA / Hibernate
 - H2 database
-
+- API REST
 
 # Author
 
