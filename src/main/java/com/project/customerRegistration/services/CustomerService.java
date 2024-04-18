@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.customerRegistration.entities.Customer;
 import com.project.customerRegistration.repositories.CustomerRepository;
+import com.project.customerRegistration.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class CustomerService {
@@ -25,7 +26,7 @@ public class CustomerService {
 
 	public Customer findById ( Long id )   {
 		Optional<Customer> customer =  customerRepository.findById(id) ;
-		return customer.get();
+		return customer.orElseThrow( () -> new ResourceNotFoundException(id));
 	}
 
 	public void delete ( Long id ) {
