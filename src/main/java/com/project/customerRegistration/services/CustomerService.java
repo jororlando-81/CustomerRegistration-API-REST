@@ -13,6 +13,8 @@ import com.project.customerRegistration.repositories.CustomerRepository;
 import com.project.customerRegistration.services.exceptions.DatabaseException;
 import com.project.customerRegistration.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class CustomerService {
 	
@@ -43,10 +45,14 @@ public class CustomerService {
 	     }
 
 	public Customer update ( Long id , Customer customer ) {
-		  
+		try {
 		  Customer entity =  customerRepository.getReferenceById(id);
 		  upDateData( entity , customer );
 		  return customerRepository.save(entity);
+		 }catch 	( EntityNotFoundException e ) {
+			 throw new ResourceNotFoundException(id) 	;
+		 }
+		  
 	}
 
 	private void upDateData(Customer entity, Customer customer) {
