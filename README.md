@@ -53,6 +53,21 @@ Back-end web application for customer registration, including registration, sear
 ![diagram](https://github.com/jororlando-81/assets/blob/main/phone%20h2.png)
 
 
+## Populating postgreSQL database
+
+
+###  Address table
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/PostgreSQLaddess.png)
+
+###  Customer table, one to one relations between Customer and Adrress
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/PostgreSQLcustomer.png)
+
+###  Phone table, many to one relations between Phone and Customer
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/PostgreSQLphones.png)
+
 # Applied technologies
 
 ## Back end
