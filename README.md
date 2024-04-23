@@ -80,6 +80,7 @@ Back-end web application for customer registration, including registration, sear
 - Spring Web 
 - Spring Data jpa
 - Maven
+- JSON
 - JPA / Hibernate
 - H2 database / PostgreSQL / XML
 - API REST
