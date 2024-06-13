@@ -24,6 +24,10 @@ Back-end web application for customer registration, including registration, sear
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerById.png)
 
+###  Exception handling for find by id
+
+![diagram](https://github.com/jororlando-81/assets/blob/main/ExceptionFindById.png)
+
 ###  Customer´s get method, show customer list
 
 ![diagram](https://github.com/jororlando-81/assets/blob/main/CustomerList.png)
